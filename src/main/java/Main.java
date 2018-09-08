@@ -9,7 +9,9 @@ import clarifai2.dto.prediction.Concept;
 import org.bytedeco.javacv.FrameGrabber;
 
 import org.bytedeco.javacv.FFmpegFrameGrabber;
-import org.bytedeco.javacv.FrameGrabber;
+// import org.bytedeco.javacv.FrameGrabber;
+//import org.bytedeco.javacv.avutil;
+
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -39,9 +41,19 @@ public class Main
 	{
 		System.out.println("Hello World");
 
-		framed();
+		//framed();
+
+		// get a clip from the mac webcam
 		runApplescript();
 
+		clarifySend();
+
+
+
+	} // end main()
+
+	public static void clarifySend()
+	{
 		System.out.println(getKey());
 
 		/*
@@ -72,25 +84,15 @@ public class Main
 		System.out.println(client.searchInputs(SearchClause.matchConcept(Concept.forName("people")))
 				.getPage(1)
 				.executeSync().get());
+	}
 
-
-
-
-
-		/*
-		GrabPhoto gs = new GrabPhoto();
-		gs.run();
-		*/
-
-
-	} // end main()
 
 	public static void framed() throws FrameGrabber.Exception, IOException {
 
 		FFmpegFrameGrabber g = new FFmpegFrameGrabber("/Users/dtrate/Desktop/DashCat/DubstepCat.mp4");
 		g.start();
 
-		for (int i = 0 ; i < 500 ; i += 10) {
+		for (int i = 0 ; i < 20 ; i += 10) {
 			ImageIO.write(g.grab().getBufferedImage(), "png", new File("/Users/dtrate/Desktop/DashCat/frames/" + System.currentTimeMillis() + ".png"));
 		}
 
@@ -98,6 +100,7 @@ public class Main
 	}
 
 
+	// record a clip using the mac webcam
 	public static void runApplescript() throws IOException
 	{
 		Runtime runtime = Runtime.getRuntime();
