@@ -9,7 +9,9 @@ import clarifai2.dto.prediction.Concept;
 import org.bytedeco.javacv.FrameGrabber;
 
 import org.bytedeco.javacv.FFmpegFrameGrabber;
-import org.bytedeco.javacv.FrameGrabber;
+// import org.bytedeco.javacv.FrameGrabber;
+import org.bytedeco.javacv.avutil;
+
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -40,7 +42,10 @@ public class Main
 		System.out.println("Hello World");
 
 		framed();
+
+		// get a clip from the mac webcam
 		runApplescript();
+
 
 		System.out.println(getKey());
 
@@ -98,6 +103,7 @@ public class Main
 	}
 
 
+	// record a clip using the mac webcam
 	public static void runApplescript() throws IOException
 	{
 		Runtime runtime = Runtime.getRuntime();
