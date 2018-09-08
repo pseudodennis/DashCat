@@ -3,14 +3,14 @@ import org.bytedeco.javacv.*;
 
 import static org.bytedeco.javacpp.opencv_core.IplImage;
 import static org.bytedeco.javacpp.opencv_core.cvFlip;
-import static org.bytedeco.javacpp.opencv_imgcodecs.cvSaveImage;
+//import static org.bytedeco.javacpp.opencv_imgcodecs.cvSaveImage;
 
 
 /**
  * Created by gtiwari on 1/3/2017.
  */
 
-public class GrabPhoto implements Runnable {
+/*public class GrabPhoto implements Runnable {
 	private int shutter = 100;///you may use interval
 	CanvasFrame canvas = new CanvasFrame("Web Cam");
 
@@ -43,7 +43,7 @@ public class GrabPhoto implements Runnable {
 
 				Thread.sleep(shutter);
 				i++;
-			}
+			}*/
 
 		}
 		catch (Exception e)
