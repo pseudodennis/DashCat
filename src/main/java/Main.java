@@ -41,14 +41,13 @@ public class Main
 	{
 		System.out.println("Hello World");
 
-		//framed();
+		framed();
 
 		// get a clip from the mac webcam
 		runApplescript();
 
+		// send video file to Clarifi
 		clarifySend();
-
-
 
 	} // end main()
 
@@ -92,9 +91,20 @@ public class Main
 		FFmpegFrameGrabber g = new FFmpegFrameGrabber("/Users/dtrate/Desktop/DashCat/DubstepCat.mp4");
 		g.start();
 
-		for (int i = 0 ; i < 20 ; i += 10) {
-			ImageIO.write(g.grab().getBufferedImage(), "png", new File("/Users/dtrate/Desktop/DashCat/frames/" + System.currentTimeMillis() + ".png"));
-		}
+
+
+		for (int i = 0 ; i < 100 ; i++) {
+			if (i%30==0)
+			{
+				ImageIO.write(g.grab().getBufferedImage(), "png", new File("/Users/dtrate/Desktop/DashCat/frames/" +
+						System.currentTimeMillis() + ".png"));
+			}
+			else
+			{
+				g.grab().getBufferedImage();
+			}
+
+			}
 
 		g.stop();
 	}
